@@ -1,0 +1,65 @@
+@import "bourbon/bourbon";
+
+body { background: #f2f2f2;
+  text-align: center;
+  color: #eee;
+  font-family: "Helvetica Neue";
+        margin: 0;
+}
+
+.meter {
+  height: 60px;
+  position: relative;
+}
+
+.meter > span {
+  display: block;
+  height: 100%;
+  background-color: rgba(52,208,206,.85);
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.meter > span:after, .animate > span > span {
+
+  @include keyframes(move) {
+      0% {
+         background-position: 0 0;
+      }
+      100% {
+         background-position: 50px 0px;
+      }
+  }
+
+  content: "";
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+
+  $white-overlay: rgba(255, 255, 255, 0.2);
+
+  @include background-image(linear-gradient(
+      135deg,
+      $white-overlay 25%,
+      transparent 25%, transparent 50%,
+      $white-overlay 50%, $white-overlay 75%,
+      transparent 75%
+    )
+  );
+  background-size: 50px 50px;
+  //background-repeat: repeat-x;
+//  z-index: 1;
+  @include animation(move 0.85s linear infinite);
+  overflow: hidden;
+}
+
+
+.processing {
+  float:left;
+  padding: 5px 0 22px 15px;
+  font-family: "helvetica neue";
+  font-weight: 500;
+  letter-spacing: 1.4px;
+  color: black;
+}

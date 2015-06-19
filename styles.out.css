@@ -1,0 +1,55 @@
+body {
+  background: #f2f2f2;
+  text-align: center;
+  color: #eee;
+  font-family: "Helvetica Neue";
+  margin: 0; }
+
+.meter {
+  height: 60px;
+  position: relative; }
+
+.meter > span {
+  display: block;
+  height: 100%;
+  background-color: rgba(52, 208, 206, 0.85);
+  position: relative;
+  overflow: hidden; }
+
+@-webkit-keyframes move {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 50px 0px; } }
+@-moz-keyframes move {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 50px 0px; } }
+@keyframes move {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 50px 0px; } }
+.meter > span:after, .animate > span > span {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%);
+  background-size: 50px 50px;
+  -webkit-animation: move 0.85s linear infinite;
+  -moz-animation: move 0.85s linear infinite;
+  animation: move 0.85s linear infinite;
+  overflow: hidden; }
+
+.processing {
+  float: left;
+  padding: 5px 0 22px 15px;
+  font-family: "helvetica neue";
+  font-weight: 500;
+  letter-spacing: 1.4px;
+  color: black; }
